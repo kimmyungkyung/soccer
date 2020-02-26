@@ -13,17 +13,50 @@
 
     gtag('config', 'UA-158667921-1');
   </script>
+  <script>
+    function nightDayHandler(self){
+      var target = document.querySelector('body');
+        if(self.value === 'night'){
+          target.style.backgroundColor = 'black';
+          target.style.color = 'white';
+          self.value = 'day';
+
+          var alist = document.querySelectorAll('a');
+          var i = 0;
+          while(i < alist.length){
+            alist[i].style.color = 'powderblue';
+            i = i + 1;
+          }
+        } else {
+          target.style.backgroundColor = 'white';
+          target.style.color = 'black';
+          self.value = 'night';
+
+          var alist = document.querySelectorAll('a');
+          var i = 0;
+          while(i < alist.length){
+            alist[i].style.color = 'blue';
+            i = i + 1;
+          }
+        }
+      }
+  </script>
 </head>
+  <style>
+    .js{
+      font-weight: bold;
+      color:red;
+    }
+    #first{
+      color:green;
+    }
+    </style>
 <body>
-  <h1><a href="index.html" style="color:black;">좋아하는 축구선수</a></h1>
-  <input type="button" value="night" onclick="
-  document.querySelector('body').style.backgroundColor='black';
-  document.querySelector('body').style.Color='white';
-  ">
-  <input type="button" value="day" onclick="
-  document.querySelector('body').style.backgroundColor='white';
-  document.querySelector('body').style.Color='black';
-  ">
+  <h1><a href="index.html" style="color:pink;">좋아하는 축구선수</a></h1>
+  <input id="night_day" type="button" value="night" onclick="
+    nightDayHandler(this);
+">
+
   <div id="grid">
   <ol>
     <li><a href="1.html">손흥민</a></li>
@@ -32,9 +65,10 @@
   </ol>
   <div id="article">
     <h2>제가 좋아하는 축구선수 3인을 소개합니다.</h2>
-    <p>축구를 좋아하는 김명경입니다. 잘 알지는 못해도
+    <p>
+      <span id="first" class="js">축구를 좋아하는 김명경입니다.</span> 잘 알지는 못해도
       좋아하는 축구 선수만큼은 관심을 갖고 경기도 챙겨보는 편입니다.
-      지금부터 제가 좋아하는 축구 선수들을 소개해보려고 합니다.
+        <span class="js">지금부터 제가 좋아하는 축구 선수들을 소개해보려고 합니다.</span>
       재밌게 봐주세요.
     </p>
   </div>
